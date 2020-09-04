@@ -11,7 +11,7 @@ module.exports = {
   },
   development: {
     client: "pg",
-    connection: "postgres://localhost/sample_api",
+    connection: "postgres://localhost/sample_api_dev",
     migrations: {
       directory: __dirname + "/db/migrations",
     },
