@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- 10
+  - 10
 deploy:
   provider: heroku
   api_key:
@@ -8,4 +8,4 @@ deploy:
   app: murmuring-tor-94200
   on:
     repo: adrianolisboa/sample-node-api
-  skip_cleanup: 'true'
+  skip_cleanup: "true"
