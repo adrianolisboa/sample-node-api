@@ -1,7 +1,7 @@
-var knex = require("./knex.js");
+const knex = require('./knex.js');
 
 function Brands() {
-  return knex("brands");
+  return knex('brands');
 }
 
 function getAllBrands() {
@@ -9,5 +9,5 @@ function getAllBrands() {
 }
 
 module.exports = {
-  getAllBrands: getAllBrands,
+  getAllBrands,
 };
