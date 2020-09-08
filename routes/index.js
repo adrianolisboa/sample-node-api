@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
 
-const queries = require('../db/queries');
+const queries = require("../db/queries");
 
-router.get('/brands', (req, res, next) => {
+router.get("/brands", (req, res, next) => {
   queries
     .getAllBrands()
     .then((brands) => {
@@ -13,10 +13,6 @@ router.get('/brands', (req, res, next) => {
     .catch((error) => {
       next(error);
     });
-});
-
-router.get('/health', (req, res) => {
-  res.status(200).json('ok');
 });
 
 module.exports = router;
