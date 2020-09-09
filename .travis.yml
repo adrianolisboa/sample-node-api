@@ -1,14 +1,18 @@
 language: node_js
 node_js:
   - 10
-script:
-  - yarn lint
-  - yarn test
-deploy:
-  provider: heroku
-  api_key:
-    secure: ZczCaRMyIwTDYFawBLKLtIU6PgCg863UkvmNVdI64514UlmPZTachDlab7SPulZIJGv6tujLB+nFODALwjkMGSrbzn85JMJBCsUlM8vDMtOS3hDfMGG9iMSkOnq7z6KDBszqCE6i4b89kjF85YmoUHnZpxmB+aL14RW72T6R8VUu9dmUfsHC6b/VjWpDodFrMdi3V7kMaA7gbwfh2Nhm841ANDQjH2brl6InAmwkrwMStk1aQovBEipV7pmQCZQ+AKs9aN9hel1n3MXwXI9jfLt/fzyi+NYpVOWrfeMg1ujcu6zLZomMSOWkQjoY1C5SF6eKCDjVlXMb36bBMx9ONrkf9ltsaHW+GgWzP00begyZ6kquM3f5lOk9wo5I/+OH2DmxdSBPOUKQad/TeNAiRQJ/rNmSQFoL244UOnLyiTsHWLYDU/tt5TGwwlkAlWM4M0FzT/IvWuVGVmzgcfJcBx72Po8OR6dWQl6bY6gdcCmsfyruFanKsIIkz4ew384/55gcOF8vLU64VAww+5c4LaUMnmZIJxiR6IGJG8d9Qe9P3xzTjzKzFtAM/EJTB8MxIj7DQyzW7Xj0WGbRNDpf6A4jne1ZA9z5ExXSB1vywWNGVgWDUrYaprU7eJtzCa4IGl/2nOTjXmr+7uVpuT5+Ydl6qXg2PwbLPDW1NzmMQvg=
-  app: murmuring-tor-94200
-  on:
-    repo: adrianolisboa/sample-node-api
-  skip_cleanup: 'true'
+jobs:
+  include:
+    - stage: tests
+      script:
+        - yarn lint
+        - yarn test
+    - stage: deploy
+      deploy:
+        provider: heroku
+        api_key:
+          secure: ZczCaRMyIwTDYFawBLKLtIU6PgCg863UkvmNVdI64514UlmPZTachDlab7SPulZIJGv6tujLB+nFODALwjkMGSrbzn85JMJBCsUlM8vDMtOS3hDfMGG9iMSkOnq7z6KDBszqCE6i4b89kjF85YmoUHnZpxmB+aL14RW72T6R8VUu9dmUfsHC6b/VjWpDodFrMdi3V7kMaA7gbwfh2Nhm841ANDQjH2brl6InAmwkrwMStk1aQovBEipV7pmQCZQ+AKs9aN9hel1n3MXwXI9jfLt/fzyi+NYpVOWrfeMg1ujcu6zLZomMSOWkQjoY1C5SF6eKCDjVlXMb36bBMx9ONrkf9ltsaHW+GgWzP00begyZ6kquM3f5lOk9wo5I/+OH2DmxdSBPOUKQad/TeNAiRQJ/rNmSQFoL244UOnLyiTsHWLYDU/tt5TGwwlkAlWM4M0FzT/IvWuVGVmzgcfJcBx72Po8OR6dWQl6bY6gdcCmsfyruFanKsIIkz4ew384/55gcOF8vLU64VAww+5c4LaUMnmZIJxiR6IGJG8d9Qe9P3xzTjzKzFtAM/EJTB8MxIj7DQyzW7Xj0WGbRNDpf6A4jne1ZA9z5ExXSB1vywWNGVgWDUrYaprU7eJtzCa4IGl/2nOTjXmr+7uVpuT5+Ydl6qXg2PwbLPDW1NzmMQvg=
+        app: murmuring-tor-94200
+        on:
+          repo: adrianolisboa/sample-node-api
+        skip_cleanup: "true"
