@@ -1,4 +1,4 @@
-//require("dotenv-safe").config();
+// require("dotenv-safe").config();
 
 const createError = require("http-errors");
 const express = require("express");
@@ -13,7 +13,7 @@ const app = express();
 app.use(helmet());
 
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
+app.set("view engine", "pug");
 
 app.use(logger("dev"));
 app.use(express.json());

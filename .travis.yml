@@ -6,6 +6,7 @@ jobs:
     - stage: tests
       script:
         - yarn lint
+        - yarn audit
         - yarn test
     - stage: deploy
       deploy:
